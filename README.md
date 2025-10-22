@@ -71,6 +71,7 @@ P(Alarm='yes' | MaryCalls='yes') = 0.9826469142035665
 **[Q3a]** P(Radio='turns on' | Battery='Works') = 0.75  
 **[Q3b]** P(Radio='turns on' | Battery='Works', Gas='Full') = 0.75  
 **[Q3]** Ans: No Change
+
 ---
 
 **P(Ignition | Moves='no')**
@@ -90,6 +91,7 @@ P(Alarm='yes' | MaryCalls='yes') = 0.9826469142035665
 **[Q4a]** P(Ignition='Doesn't work' | Moves='no') = 0.5666  
 **[Q4b]** P(Ignition='Doesn't work' | Moves='no', Gas='Empty') = 0.4821  
 **[Q4]** Ans: 0.5666 -> 0.4821 Observing that the car has no gas decreases the probability of ignition failure from 0.5666 to 0.4822, because the “no gas” event accounts for part of the car’s failure to move.
+
 ---
 
 **P(Starts | Radio='turns on', Gas='Full')**
