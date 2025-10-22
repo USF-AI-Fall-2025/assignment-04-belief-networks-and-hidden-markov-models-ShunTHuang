@@ -7,10 +7,10 @@ Fall 2025 CS 362/562
 
 | MaryCalls      | φ(MaryCalls) |
 |----------------|---------------|
-| MaryCalls(yes) | 0.1002        |
-| MaryCalls(no)  | 0.8998        |
+| MaryCalls(yes) | 0.0400        |
+| MaryCalls(no)  | 0.9600        |
 
-P(MaryCalls='yes' | JohnCalls='yes') = 0.1002  
+P(MaryCalls='yes' | JohnCalls='yes') = 0.0400  
 
 ---
 
@@ -18,10 +18,10 @@ P(MaryCalls='yes' | JohnCalls='yes') = 0.1002
 
 | JohnCalls      | MaryCalls      | φ(JohnCalls, MaryCalls) |
 |----------------|----------------|--------------------------|
-| JohnCalls(yes) | MaryCalls(yes) | 0.0950                   |
-| JohnCalls(yes) | MaryCalls(no)  | 0.8550                   |
-| JohnCalls(no)  | MaryCalls(yes) | 0.0050                   |
-| JohnCalls(no)  | MaryCalls(no)  | 0.0450                   |
+| JohnCalls(yes) | MaryCalls(yes) | 0.6300                   |
+| JohnCalls(yes) | MaryCalls(no)  | 0.2700                   |
+| JohnCalls(no)  | MaryCalls(yes) | 0.0700                   |
+| JohnCalls(no)  | MaryCalls(no)  | 0.0300                   |
 
 P(JohnCalls='yes', MaryCalls='yes' | Alarm='yes') = 0.095  
 
@@ -31,10 +31,10 @@ P(JohnCalls='yes', MaryCalls='yes' | Alarm='yes') = 0.095
 
 | Alarm      | φ(Alarm) |
 |-------------|-----------|
-| Alarm(yes)  | 0.9826    |
-| Alarm(no)   | 0.0174    |
+| Alarm(yes)  | 0.1501    |
+| Alarm(no)   | 0.8499    |
 
-P(Alarm='yes' | MaryCalls='yes') = 0.9826
+P(Alarm='yes' | MaryCalls='yes') = 0.1501
 
 
 # Part 2

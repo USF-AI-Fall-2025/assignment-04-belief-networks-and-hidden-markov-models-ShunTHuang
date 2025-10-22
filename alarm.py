@@ -1,7 +1,7 @@
-from pgmpy.models import BayesianNetwork
+from pgmpy.models import DiscreteBayesianNetwork
 from pgmpy.inference import VariableElimination
 
-alarm_model = BayesianNetwork(
+alarm_model = DiscreteBayesianNetwork(
     [
         ("Burglary", "Alarm"),
         ("Earthquake", "Alarm"),
@@ -27,7 +27,7 @@ cpd_alarm = TabularCPD(
     values=[[0.999, 0.71, 0.06, 0.05], [0.001, 0.29, 0.94, 0.95]],
     evidence=["Burglary", "Earthquake"],
     evidence_card=[2, 2],
-    state_names={"Burglary":['no','yes'], "Earthquake":['no','yes'], 'Alarm':['yes','no']},
+    state_names={"Burglary":['no','yes'], "Earthquake":['no','yes'], 'Alarm':['no','yes']},
 )
 cpd_johncalls = TabularCPD(
     variable="JohnCalls",
@@ -35,15 +35,15 @@ cpd_johncalls = TabularCPD(
     values=[[0.95, 0.1], [0.05, 0.9]],
     evidence=["Alarm"],
     evidence_card=[2],
-    state_names={"Alarm":['yes','no'], "JohnCalls":['yes', 'no']},
+    state_names={"Alarm":['no','yes'], "JohnCalls":['no', 'yes']},
 )
 cpd_marycalls = TabularCPD(
     variable="MaryCalls",
     variable_card=2,
-    values=[[0.1, 0.7], [0.9, 0.3]],
+    values=[[0.99, 0.3], [0.01, 0.7]],
     evidence=["Alarm"],
     evidence_card=[2],
-state_names={"Alarm":['yes','no'], "MaryCalls":['yes', 'no']},
+    state_names={'Alarm':['no','yes'], 'MaryCalls':['no', 'yes']},
 )
 
 # Associating the parameters with the model structure
@@ -52,7 +52,7 @@ alarm_model.add_cpds(
 
 alarm_infer = VariableElimination(alarm_model)
 
-# print(alarm_infer.query(variables=["JohnCalls"],evidence={"Earthquake":"yes"}))
+#print(alarm_infer.query(variables=["JohnCalls"],evidence={"Earthquake":"yes"}))
 #
 #the probability of Mary Calling given that John called
 
@@ -69,12 +69,12 @@ def main():
     q2 = alarm_infer.query(variables=["JohnCalls", "MaryCalls"], evidence={"Alarm": "yes"})
     print("P(JohnCalls, MaryCalls | Alarm='yes'):")
     print(q2)
-    print(f"P(JohnCalls='yes', MaryCalls='yes' | Alarm='yes') = {float(q2.values[0, 0])} \n")
+    print(f"P(JohnCalls='yes', MaryCalls='yes' | Alarm='yes') = {float(q2.values[1, 1])} \n")
 
     q3 = alarm_infer.query(variables=["Alarm"], evidence={"MaryCalls": "yes"})
     print("P(Alarm | MaryCalls='yes'):")
     print(q3)
-    print(f"P(Alarm='yes' | MaryCalls='yes') = {float(q3.values[0])}")
+    print(f"P(Alarm='yes' | MaryCalls='yes') = {float(q3.values[1])}")
 
 if __name__ == "__main__":
     main()
