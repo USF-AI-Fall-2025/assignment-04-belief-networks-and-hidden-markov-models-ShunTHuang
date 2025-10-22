@@ -10,7 +10,7 @@ Fall 2025 CS 362/562
 | MaryCalls(yes) | 0.1002        |
 | MaryCalls(no)  | 0.8998        |
 
-P(MaryCalls='yes' | JohnCalls='yes') = 0.10015929183301055  
+P(MaryCalls='yes' | JohnCalls='yes') = 0.1002  
 
 ---
 
@@ -34,7 +34,7 @@ P(JohnCalls='yes', MaryCalls='yes' | Alarm='yes') = 0.095
 | Alarm(yes)  | 0.9826    |
 | Alarm(no)   | 0.0174    |
 
-P(Alarm='yes' | MaryCalls='yes') = 0.9826469142035665
+P(Alarm='yes' | MaryCalls='yes') = 0.9826
 
 
 # Part 2
