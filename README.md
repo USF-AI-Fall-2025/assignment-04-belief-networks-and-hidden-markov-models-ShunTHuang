@@ -61,7 +61,14 @@ P(Alarm='yes' | MaryCalls='yes') = 0.9826469142035665
 
 ---
 
-**P(Radio | Battery)**
+**P(Radio | Battery: 'Works')**
+
+| Radio                  | φ(Radio) |
+|-------------------------|-----------|
+| Radio(turns on)         | 0.7500    |
+| Radio(Doesn't turn on)  | 0.2500    |
+
+**P(Radio | Battery: 'Works', Gas: 'Full')**
 
 | Radio                  | φ(Radio) |
 |-------------------------|-----------|
