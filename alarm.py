@@ -52,9 +52,29 @@ alarm_model.add_cpds(
 
 alarm_infer = VariableElimination(alarm_model)
 
-#print(alarm_infer.query(variables=["JohnCalls"],evidence={"Earthquake":"yes"}))
+# print(alarm_infer.query(variables=["JohnCalls"],evidence={"Earthquake":"yes"}))
 #
 #the probability of Mary Calling given that John called
 
-q = alarm_infer.query(variables=["Alarm", "Burglary"],evidence={"MaryCalls":"yes"})
-print(q)
+# q = alarm_infer.query(variables=["Alarm", "Burglary"],evidence={"MaryCalls":"yes"})
+# print(q)
+
+
+def main():
+    q1 = alarm_infer.query(variables=["MaryCalls"], evidence={"JohnCalls": "yes"})
+    print("P(MaryCalls | JohnCalls='yes'):")
+    print(q1)
+    print(f"P(MaryCalls='yes' | JohnCalls='yes') = {float(q1.values[0])} \n")
+
+    q2 = alarm_infer.query(variables=["JohnCalls", "MaryCalls"], evidence={"Alarm": "yes"})
+    print("P(JohnCalls, MaryCalls | Alarm='yes'):")
+    print(q2)
+    print(f"P(JohnCalls='yes', MaryCalls='yes' | Alarm='yes') = {float(q2.values[0, 0])} \n")
+
+    q3 = alarm_infer.query(variables=["Alarm"], evidence={"MaryCalls": "yes"})
+    print("P(Alarm | MaryCalls='yes'):")
+    print(q3)
+    print(f"P(Alarm='yes' | MaryCalls='yes') = {float(q3.values[0])}")
+
+if __name__ == "__main__":
+    main()
