@@ -140,8 +140,11 @@ def main():
 
     # print(car_infer.query(variables=["Moves"],evidence={"Radio":"turns on", "Starts":"yes"}))
     # step_2(car_infer)
+
+    # This is step 2 without KeyPresent
     print("[Step2]")
     step_2(bayesian_network())
+    # This is step 3 with KeyPresent
     print("\n[Step3]")
     step_3(bayesian_network("step_3"))
 
