@@ -23,7 +23,7 @@ P(MaryCalls='yes' | JohnCalls='yes') = 0.0400
 | JohnCalls(no)  | MaryCalls(yes) | 0.0700                   |
 | JohnCalls(no)  | MaryCalls(no)  | 0.0300                   |
 
-P(JohnCalls='yes', MaryCalls='yes' | Alarm='yes') = 0.095  
+P(JohnCalls='yes', MaryCalls='yes' | Alarm='yes') = 0.6300 
 
 ---
 
@@ -121,7 +121,7 @@ P(Alarm='yes' | MaryCalls='yes') = 0.1501
 | KeyPresent(yes) | 0.6604        |
 | KeyPresent(no)  | 0.3396        |
 
-P(KeyPresent='no' | Moves='no') = 0.3396d
+P(KeyPresent='no' | Moves='no') = 0.3396
 
 # Reflection
 
